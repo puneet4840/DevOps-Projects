@@ -2,7 +2,17 @@
 
 Ye ek High Availability aur Disaster Recovery ka project hai. Jisme hum python flask application ko azure ke infra par highly available aur disaster recovery rakhenge.
 
-Flask app ko hum azure app service par deploy karenge.
+Humare paas ek python (flask) ka ek application hoga jo url hit karne par region name, hostname ki information dega, ```/health``` hit karne par 200 OK response dega.
+
+Is app ko hum Azure App Service par deploy karenge central india aur south india do alag-alag regions mein. Load balance karne ke liye hum dono app service ko Azure Front Door ke backend mein rakhenge jisse ek app service stop hone par, traffic dusre app service par redirect ho jayega.
+
+Fir hum Azure SQL Databases banyenge Geo-Replication method se, jisme ek db central india region mein hoga aur dusra db south india region mein hoga. 
+
+Dono DR drill karenge. DR drill ka matlab hai ek app stop karke traffic dusre app par bhejenge, ese hi primary db ko failover karke dekhenge. 
+
+Fir primary db ko point-in-time restore karke data restore karenge.
+
+Ye hi humara project hai.
 
 <br>
 
@@ -27,6 +37,15 @@ Is project me hum:
 - Auto failover test karenge (DR Drill).
 - Database replication setup karenge.
 - Database backup + restore practically perform karenge.
+
+Ye project multiple Phases mein hoga:
+- PHASE 1: Application Layer (Multi-Region Deployment).
+- PHASE 2: Global Traffic Routing with Azure Front Door.
+- PHASE 3: Database Replication (Azure SQL – Active Geo-Replication).
+- PHASE 4: Backup & Restore Strategy (Enterprise-Grade).
+- PHASE 5: Automated Failover Testing & DR Drill (Enterprise Level).
+
+Maine is project ko phase wise implement kiya tha, aur hum ek-ek karke in phases ko dekhenge.
 
 <br>
 <br>
