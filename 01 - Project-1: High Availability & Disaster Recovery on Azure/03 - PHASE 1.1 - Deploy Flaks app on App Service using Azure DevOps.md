@@ -406,10 +406,22 @@ Ye dono stage simple zip file ko ```/home/site/wwwroot``` location par zip ko up
 
 **Stage-1: Deploy code on Central Inda App Service**:
 
+<br>
+
 <img src="https://drive.google.com/uc?export=view&id=1_Jy67XWRyR1HWhhBnNg9KwwyB5khh15U" height=450 weight=450>
 
 <br>
 
 **Stage-2: Deploy code on South India App Service**:
 
+<br>
+
 <img src="https://drive.google.com/uc?export=view&id=1k-H_N4elQmfy5tPH7iC_kIB6gosn-_ML" height=450 weight=450>
+
+<br>
+
+In dono stages mein maine Package or folder ko ```$(System.DefaultWorkingDirectory)/_Deploy Flask App on Azure App Service/drop/*.zip``` ye path diya hai, lekin last mein aap dekhoge ki ```*.zip``` diya hai, artifact ki location par ek hi zip file aati hai, aur artifact ki is location par jo bhi zip file hogi vo ye select kar lega app service par deploy karne ke liye.
+
+Pehle maine yaha pe partifular zip file select kar di thi lekin usko select karke pipeline run karne par error aa rha tha kyuki latest build ki jagah vo particular zip file select ho rhi thi isliye.
+
+To is tarike se maine flask application ko Azure ki App Service par deploy kiya tha.
