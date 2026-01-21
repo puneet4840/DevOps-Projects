@@ -392,3 +392,24 @@ Iske liye humko azure mein app registration mein ek secret create karna hoga. Fi
 
 <img src="https://drive.google.com/uc?export=view&id=1d3eLKIH8LlD3-GlkPsp7p7PQfmCvrKYB" height=450 weight=450>
 
+Ye humari release pipeline hai, Jisme humne pehle artifact ko select kar liya hai, ye vo artifact jisko build pipeline ki last stage pe humne artifact storage mein store karaya tha.
+
+Fir humne do stages banai hain:
+- Stage-1: Deploy code on Central Inda App Service.
+- Stage-2: Deploy code on South India App Service.
+
+Ek stage Central India region mein bane hue app service par flask app deploy kar rhi hai. Wahi dusri stage South India region mein bane hue app service par flask app deploy kar rhi hai.
+
+Ye dono stage simple zip file ko ```/home/site/wwwroot``` location par zip ko upload kar rhi hain.
+
+<br>
+
+**Stage-1: Deploy code on Central Inda App Service**:
+
+<img src="https://drive.google.com/uc?export=view&id=1_Jy67XWRyR1HWhhBnNg9KwwyB5khh15U" height=450 weight=450>
+
+<br>
+
+**Stage-2: Deploy code on South India App Service**:
+
+<img src="https://drive.google.com/uc?export=view&id=1k-H_N4elQmfy5tPH7iC_kIB6gosn-_ML" height=450 weight=450>
