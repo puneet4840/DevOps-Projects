@@ -213,6 +213,9 @@ Ab hum dekhenge ki Azure DevOps ki pipeline ke through hum app service pe apni f
 Maine is project mein application ka code Azure Repos par push kiya tha aur usi se Build pipeline banai thi.
 
 **Azure Repos**:
+
+<img src="https://drive.google.com/uc?export=view&id=1CjLQ9WGZX_SjTZfzRYVATXJuwq2LWbEr" height=350 weight=650>
+
 ```
 HA-DR-App
 |- app.py
