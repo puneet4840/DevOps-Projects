@@ -214,7 +214,7 @@ Maine is project mein application ka code Azure Repos par push kiya tha aur usi 
 
 **Azure Repos**:
 
-<img src="https://drive.google.com/uc?export=view&id=1CjLQ9WGZX_SjTZfzRYVATXJuwq2LWbEr" height=350 weight=650>
+<img src="https://drive.google.com/uc?export=view&id=1CjLQ9WGZX_SjTZfzRYVATXJuwq2LWbEr" height=250 weight=550>
 
 ```
 HA-DR-App
