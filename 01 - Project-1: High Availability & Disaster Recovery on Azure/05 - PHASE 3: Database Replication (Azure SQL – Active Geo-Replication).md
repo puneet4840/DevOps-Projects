@@ -27,7 +27,7 @@ Maine ye project complate karke test kiya hua hai, Maine ye complete infrastruct
 
 <br>
 
-**STEP 1: Primary Azure SQL Setup (Central India)**:
+### STEP 1: Primary Azure SQL Setup (Central India):
 
 A) Create SQL Server:
 
@@ -59,8 +59,9 @@ C) Networking:
 - Allow your IP.
  
 <br>
+<br>
 
-**STEP 2: Create Secondary Replica (South India)**:
+### STEP 2: Create Secondary Replica (South India):
 
 Azure Portal:
 - SQL Database → hadr-db → Replicas → Create replica.
@@ -76,8 +77,9 @@ Azure Portal:
 Replication setup takes few minutes.
 
 <br>
+<br>
 
-**STEP 3: Verify Replication**:
+### STEP 3: Verify Replication:
 
 Azure Portal → SQL DB → Replicas
 
@@ -89,8 +91,9 @@ Replication status: Healthy
 ```
 
 <br>
+<br>
 
-**STEP 4: Application Connection Strategy (VERY IMPORTANT)**:
+### STEP 4: Application Connection Strategy (VERY IMPORTANT):
 
 Ye step aapke application ko database ke saath connect karne ke liye hai. Agar apka koi application hai to ye step follow kariye. Is step ka matlab hai ki apko application ke code mein database ke connection ke liye database ki configuration hardcode nhi karni hai balki usko dynamic rakhna hai.
 
@@ -103,8 +106,9 @@ For now:
 - On DB failover → update connection string.
 
 <br>
+<br>
 
-**STEP 5: Test Data Replication (Hands-On)**:
+### STEP 5: Test Data Replication (Hands-On):
 
 A) Connect to Primary DB:
 
@@ -132,8 +136,9 @@ SELECT * FROM health_check;
 Data visible = replication working ✅.
 
 <br>
+<br>
 
-**STEP 6: Manual Failover Test (DR Drill)**:
+### STEP 6: Manual Failover Test (DR Drill):
 
 Ab humko manual failover karke DR Drill karni hai, iska matlab hai ki humko database pe jaake manual failover karna hai, jisse hoga ye ki prmiary db secondary ho jayega aur secondary db primary ho jayega.
 
@@ -156,8 +161,9 @@ Read again → Data present
 🎉 DB Failover Successful.
 
 <br>
+<br>
 
-**Measure RPO (CRITICAL)**:
+### Measure RPO (CRITICAL):
 
 RPO (Recovery Point Objective) iska matlab hai ki disaster ke time kitna data loss ho sakta hai. 
 
@@ -283,6 +289,7 @@ Jawab hai: Nahi
 - Failover tested.
 - RPO measured.
 
+<br>
 <br>
 <br>
 
