@@ -100,12 +100,38 @@ gunicorn --bind=0.0.0.0:8000 app:app
 ```
 Ye startup command flask app ke liye hai. Jisme hum gunicorn library se 8000 port par bind kar rhe hain. Ye ```app:app``` apko code se dekh kar likhna hai. 
 
-Code: ```app.py```
-```
-app = Flask(__name__)
-```
+Is Command ka Matlab:
+- ```gunicorn```: Ye server ka naam hai jo Python app ko handle karega.
+- ```--bind=0.0.0.0```: Iska matlab hai ki app har network interface par listen karegi (Azure ke liye zaroori hai).
+- ```app:app```: Pehla app aapki file ka naam hai (app.py), aur doosra app aapke Flask object ka naam hai jo aapne code mein ```app = Flask(__name__)``` likha hai.
 
-Ek ```aap``` apki python file ka naam hota hai aur dusra ```aap``` flask ka object hota hai.
+<br>
+
+Startup Command kaha deni hai:
+- Azure Portal par apni App Service kholiye.
+- Left menu mein Settings > Configuration par jaiye.
+- General Settings tab par click kijiye.
+- Startup Command box mein upar wali command paste kar dijiye.
+- Upar Save button dabaiye aur confirm kijiye.
+
+<br>
+
+**Gunicorn kya hai, kyu use karte hain?**
+
+Gunicorn ek production ready WSGI HTTP web server hai python ke liye.
+
+Gunicorn (Green Unicorn) ko samajhne ke liye pehle ek basic concept samajhna zaroori hai: Web Server vs. Application Server.
+
+Jab aap development mein ```python app.py``` command chalate hain, toh Flask apna ek inbuilt server start karta hai. Lekin wo server sirf development (testing) ke liye hota hai. Wo ek waqt par sirf ek request handle kar sakta hai—bilkul waise hi jaise ek dukaan par sirf ek counter ho. Agar 100 log ek saath aa jayein, toh wo crash ho jayega.
+
+Gunicorn wahan kaam aata hai. Ye ek WSGI (Web Server Gateway Interface) HTTP Server hai.
+
+Gunicorn Kya Karta Hai?
+- Multiple Workers (Multiple Counters): Gunicorn "worker processes" create karta hai. Agar aapne 4 workers set kiye hain, toh aapka app ek saath 4 alag-alag requests handle kar sakta hai.
+- Process Management: Agar koi ek worker process crash ho jata hai, toh Gunicorn use automatically restart kar deta hai.
+- Security aur Stability: Ye production environment ke liye bana hai, jo heavy traffic aur security threats ko handle kar sakta hai.
+
+Jab bhi aap flask ke application ko production mein use kare to apko hamesha ```requirements.txt``` file mein ```gunicorn``` library jarur likhi hai, kyuki jab aap app service mein flask ke app ko deploy karte ho to app service gunicorn web server as a library install to bhi kar lega, To jab aap ```gunicorn --bind=0.0.0.0:8000 app:app``` command doge as startup command to flask app run ho jayegi.
 
 <br>
 
